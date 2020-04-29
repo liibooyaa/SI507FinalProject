@@ -1,0 +1,36 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF8"/>
+    <title>Best Movies: Results</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 5px;
+        }
+</style>
+</head>
+<body>
+    <h1>Best {{genre}} movies:</h1>
+    <table>
+        <tr>
+            <th>Rank</th>
+            <th>Title</th>
+            <th>Score</th>
+        </tr>
+        {% for row in results %}
+        <tr>
+            <td>{{row[0]}}</td>
+            <td>{{row[1]}}</td>
+            <td>{{row[2]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="/movie_info" method="POST">
+        <h2>
+            Want to know more details? Please enter the rank of the movie that interests you: <input name="name" type="text"/><br/>
+        </h2>
+</body>
+</html>
